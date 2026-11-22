@@ -1,0 +1,42 @@
+<section class="rd-scomp" aria-labelledby="rd-scomp-titulo">
+  <style>
+    .rd-scomp { padding: var(--rd-espaco-xl) 0; background: var(--rd-cor-fundo-alt); }
+    .rd-scomp__topo { max-width: 720px; margin-bottom: clamp(36px, 5vw, 56px); }
+    .rd-scomp__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .rd-scomp__item { position: relative; padding: 36px 30px 34px; border-radius: var(--rd-raio-lg); background: #fff; box-shadow: var(--rd-sombra-suave); overflow: hidden; }
+    .rd-scomp__item::before { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 4px; background: var(--rd-azul); transform: scaleX(.18); transform-origin: left; transition: transform .6s var(--rd-ease); }
+    .rd-scomp__item:hover::before { transform: scaleX(1); }
+    .rd-scomp__item:nth-child(2)::before { background: var(--rd-turquesa); }
+    .rd-scomp__item:nth-child(3)::before { background: var(--rd-verde-logo); }
+    .rd-scomp__item .rd-icon { width: 34px; height: 34px; color: var(--rd-azul); stroke-width: 1.5; }
+    .rd-scomp__item:nth-child(2) .rd-icon { color: var(--rd-turquesa); }
+    .rd-scomp__item:nth-child(3) .rd-icon { color: var(--rd-verde-logo); }
+    .rd-scomp__item h3 { font-size: 1.25rem; margin-top: 22px; }
+    .rd-scomp__item p { color: var(--rd-cor-texto-claro); margin-top: 12px; }
+    @media (max-width: 900px) { .rd-scomp__grid { grid-template-columns: 1fr; } }
+  </style>
+
+  <div class="rd-container">
+    <div class="rd-scomp__topo">
+      <span class="rd-eyebrow rd-revela">O que nos move</span>
+      <h2 id="rd-scomp-titulo" class="rd-titulo rd-revela">Educação e saúde, no mesmo compromisso.</h2>
+    </div>
+    <div class="rd-scomp__grid">
+      <article class="rd-scomp__item rd-revela">
+        {{icon:livro}}
+        <h3>Compromisso com a educação</h3>
+        <p>Formar bem é a primeira responsabilidade de uma escola. No ITPSS, isso significa dar a cada estudante bases sólidas para a profissão que escolheu.</p>
+      </article>
+      <article class="rd-scomp__item rd-revela" style="--rd-atraso:.08s">
+        {{icon:coracao}}
+        <h3>Compromisso com a saúde</h3>
+        <p>Os técnicos que aqui estudam vão trabalhar com pessoas. Por isso a formação olha para o cuidado com o doente tanto quanto para a técnica.</p>
+      </article>
+      <article class="rd-scomp__item rd-revela" style="--rd-atraso:.16s">
+        {{icon:pessoas}}
+        <h3>Profissionais qualificados</h3>
+        <p>O objectivo é claro: preparar profissionais qualificados que contribuam para o desenvolvimento da sociedade angolana.</p>
+      </article>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,88 @@
+<section class="rd-adm" id="pedido" aria-labelledby="rd-adm-titulo">
+  <style>
+    .rd-adm { padding: var(--rd-espaco-xl) 0; background: var(--rd-cor-fundo-alt); }
+    .rd-adm__grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(32px, 5vw, 64px); align-items: start; }
+    .rd-adm__lado p { color: var(--rd-cor-texto-claro); margin-top: 16px; }
+    .rd-adm__passos { list-style: none; margin: 32px 0 0; padding: 0; display: grid; gap: 4px; counter-reset: rdpasso; }
+    .rd-adm__passos li { position: relative; padding: 0 0 22px 52px; counter-increment: rdpasso; }
+    .rd-adm__passos li::before { content: counter(rdpasso); position: absolute; left: 0; top: -2px; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #fff; border: 1.5px solid var(--rd-cor-linha); font-family: var(--rd-fonte-titulo); font-weight: 600; font-size: .85rem; color: var(--rd-azul); }
+    .rd-adm__passos li::after { content: ""; position: absolute; left: 16.5px; top: 36px; bottom: 2px; width: 1.5px; background: var(--rd-cor-linha); }
+    .rd-adm__passos li:last-child::after { display: none; }
+    .rd-adm__passos b { display: block; font-family: var(--rd-fonte-titulo); color: var(--rd-azul-escuro); font-weight: 600; }
+    .rd-adm__passos span { font-size: .93rem; color: var(--rd-cor-texto-claro); }
+    .rd-adm__directo { margin-top: 18px; padding: 24px; border-radius: var(--rd-raio-borda); background: var(--rd-azul-escuro); color: #fff; }
+    .rd-adm__directo h3 { color: #fff; font-size: 1.05rem; }
+    .rd-adm__directo a.rd-adm__tel { display: flex; align-items: center; gap: 10px; margin-top: 12px; color: #fff; text-decoration: none; font-weight: 500; }
+    .rd-adm__directo a.rd-adm__tel:hover { color: #7FE0D6; }
+    .rd-adm__directo .rd-icon { width: 18px; height: 18px; color: #7FE0D6; }
+    .rd-adm__directo .rd-btn { margin-top: 20px; width: 100%; }
+    .rd-adm__cartao { padding: clamp(28px, 4vw, 48px); border-radius: var(--rd-raio-lg); background: #fff; box-shadow: var(--rd-sombra-suave); }
+    .rd-adm__cartao h2 { font-size: 1.5rem; }
+    .rd-adm__cartao > p { color: var(--rd-cor-texto-claro); margin: 8px 0 28px; font-size: .95rem; }
+    @media (max-width: 900px) { .rd-adm__grid { grid-template-columns: 1fr; } .rd-adm__cartao { order: -1; } }
+  </style>
+
+  <div class="rd-container rd-adm__grid">
+    <aside class="rd-adm__lado rd-revela">
+      <span class="rd-eyebrow">Como funciona</span>
+      <h2 id="rd-adm-titulo" class="rd-titulo">Do primeiro contacto à inscrição.</h2>
+      <p>As datas de matrícula, documentos necessários e condições de cada curso são indicados pela secretaria do instituto.</p>
+      <ol class="rd-adm__passos">
+        <li><b>Escolhe o curso</b><span>Estomatologia, Farmácia ou Fisioterapia.</span></li>
+        <li><b>Envia o pedido de informação</b><span>Pelo formulário, por telefone ou pelo WhatsApp.</span></li>
+        <li><b>Fala com a secretaria</b><span>Para saber prazos, documentos e próximos passos.</span></li>
+      </ol>
+      <div class="rd-adm__directo">
+        <h3>Prefere falar já?</h3>
+        <a class="rd-adm__tel" href="{{tel1_href}}">{{icon:telefone}} {{tel1}}</a>
+        <a class="rd-adm__tel" href="{{tel2_href}}">{{icon:telefone}} {{tel2}}</a>
+        <a class="rd-btn rd-btn--whats" href="contactos.html" data-whats="Olá! Gostaria de informações sobre as admissões no ITPSS.">{{icon:whatsapp}} Contactar pelo WhatsApp</a>
+      </div>
+    </aside>
+
+    <div class="rd-adm__cartao rd-revela" style="--rd-atraso:.08s">
+      <h2>Pedido de informações</h2>
+      <p>Os campos marcados com * são obrigatórios.</p>
+
+      <!-- Formulário demonstrativo. No WordPress, substituir por Contact Form 7 / WPForms com os mesmos campos. -->
+      <form class="rd-form" data-rd-form novalidate>
+        <div class="rd-campo">
+          <label for="adm-nome">Nome completo *</label>
+          <input id="adm-nome" name="nome" type="text" autocomplete="name" required>
+          <span class="rd-campo__erro" aria-live="polite"></span>
+        </div>
+        <div class="rd-form__linha">
+          <div class="rd-campo">
+            <label for="adm-tel">Número de telefone *</label>
+            <input id="adm-tel" name="telefone" type="tel" inputmode="tel" autocomplete="tel" placeholder="9XX XXX XXX" required>
+            <span class="rd-campo__erro" aria-live="polite"></span>
+          </div>
+          <div class="rd-campo">
+            <label for="adm-curso">Curso pretendido *</label>
+            <select id="adm-curso" name="curso" required>
+              <option value="">Seleccione um curso</option>
+              <option value="Estomatologia">Estomatologia</option>
+              <option value="Farmácia">Farmácia</option>
+              <option value="Fisioterapia">Fisioterapia</option>
+            </select>
+            <span class="rd-campo__erro" aria-live="polite"></span>
+          </div>
+        </div>
+        <div class="rd-campo">
+          <label for="adm-msg">Mensagem <small>(opcional)</small></label>
+          <textarea id="adm-msg" name="mensagem" rows="5" placeholder="Escreva aqui as suas dúvidas."></textarea>
+          <span class="rd-campo__erro" aria-live="polite"></span>
+        </div>
+        <div class="rd-form__nota" tabindex="-1" role="status">
+          <strong>Formulário ainda não ligado.</strong>
+          <span>Esta é uma versão de demonstração: o pedido não foi enviado. Pode continuar pelo WhatsApp com os dados que preencheu, ou ligar para {{tel1}}.</span>
+          <a class="rd-btn rd-btn--whats rd-btn--sm" href="contactos.html">{{icon:whatsapp}} Continuar no WhatsApp</a>
+        </div>
+        <div class="rd-form__rodape">
+          <button class="rd-btn" type="submit">Enviar Pedido de Informação {{icon:seta}}</button>
+          <p class="rd-form__privacidade">Os dados servem apenas para o ITPSS responder ao seu pedido.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

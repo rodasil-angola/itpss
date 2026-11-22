@@ -1,0 +1,45 @@
+<section class="rd-isobre" aria-labelledby="rd-isobre-titulo">
+  <style>
+    .rd-isobre { padding: var(--rd-espaco-xl) 0; background: var(--rd-cor-fundo); }
+    .rd-isobre__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 96px); align-items: center; }
+    .rd-isobre__fotos { position: relative; padding: 0 56px 64px 0; }
+    .rd-isobre__f1 { border-radius: var(--rd-raio-lg); overflow: hidden; aspect-ratio: 5 / 4; box-shadow: var(--rd-sombra-suave); }
+    .rd-isobre__f2 { position: absolute; right: 0; bottom: 0; width: 52%; border-radius: var(--rd-raio-borda); overflow: hidden; aspect-ratio: 4 / 3; border: 6px solid #fff; box-shadow: var(--rd-sombra-forte); }
+    .rd-isobre__fotos img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--rd-ease); }
+    .rd-isobre__fotos:hover img { transform: scale(1.03); }
+    .rd-isobre__selo { position: absolute; left: -18px; top: 28px; display: grid; place-items: center; width: 92px; height: 92px; border-radius: 50%; background: var(--rd-turquesa); color: #fff; box-shadow: 0 14px 30px rgba(33, 166, 154, .35); }
+    .rd-isobre__selo .rd-icon { width: 38px; height: 38px; stroke-width: 1.5; }
+    .rd-isobre__texto p.rd-isobre__p { margin-top: 18px; color: var(--rd-cor-texto-claro); max-width: 54ch; }
+    .rd-isobre__lista { list-style: none; padding: 0; margin: 30px 0 34px; display: grid; gap: 14px; }
+    .rd-isobre__lista li { display: flex; gap: 14px; align-items: flex-start; font-weight: 500; color: var(--rd-azul-escuro); }
+    .rd-isobre__lista .rd-icon { width: 22px; height: 22px; margin-top: 2px; color: var(--rd-turquesa); }
+    @media (max-width: 900px) {
+      .rd-isobre__grid { grid-template-columns: 1fr; }
+      .rd-isobre__fotos { max-width: 560px; padding-right: 36px; padding-bottom: 48px; }
+      .rd-isobre__selo { left: auto; right: 10px; top: -20px; width: 76px; height: 76px; }
+    }
+  </style>
+
+  <div class="rd-container rd-isobre__grid">
+    <div class="rd-isobre__fotos rd-revela">
+      <div class="rd-isobre__f1">
+        <img src="assets/img/sobre-campus-720.webp" srcset="assets/img/sobre-campus-720.webp 720w, assets/img/sobre-campus.webp 1072w" sizes="(max-width: 900px) 90vw, 45vw" alt="Pátio interior do ITPSS com estudantes de bata branca" width="1072" height="712" loading="lazy">
+      </div>
+      <div class="rd-isobre__f2">
+        <img src="assets/img/sobre-turma-720.webp" alt="Grupo de estudantes e formadores do ITPSS num laboratório" width="720" height="478" loading="lazy">
+      </div>
+      <span class="rd-isobre__selo" aria-hidden="true">{{icon:coracao}}</span>
+    </div>
+
+    <div class="rd-isobre__texto">
+      <span class="rd-eyebrow rd-revela">Sobre o Instituto</span>
+      <h2 id="rd-isobre-titulo" class="rd-titulo rd-revela">Formação que prepara para servir a sociedade.</h2>
+      <p class="rd-isobre__p rd-revela">O Instituto Técnico Privado de Saúde do Sambizanga está comprometido com a educação, a saúde e a preparação de profissionais qualificados, contribuindo para o desenvolvimento da sociedade.</p>
+      <ul class="rd-isobre__lista rd-revela">
+        <li>{{icon:pin}}<span>No Hoji Ya Henda, mesmo ao lado do Hospital do Sambizanga</span></li>
+        <li>{{icon:livro}}<span>Três áreas de formação: Estomatologia, Farmácia e Fisioterapia</span></li>
+      </ul>
+      <a class="rd-btn rd-revela" href="sobre.html">Conhecer a Instituição {{icon:seta}}</a>
+    </div>
+  </div>
+</section>

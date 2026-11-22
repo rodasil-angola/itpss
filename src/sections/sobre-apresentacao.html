@@ -1,0 +1,36 @@
+<section class="rd-sapres" aria-labelledby="rd-sapres-titulo">
+  <style>
+    .rd-sapres { padding: var(--rd-espaco-xl) 0; }
+    .rd-sapres__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 96px); align-items: center; }
+    .rd-sapres__texto p { color: var(--rd-cor-texto-claro); margin-top: 18px; max-width: 56ch; }
+    .rd-sapres__texto p:first-of-type { color: var(--rd-cor-texto); font-size: 1.15rem; }
+    .rd-sapres__ficha { margin-top: 32px; display: grid; grid-template-columns: auto 1fr; gap: 12px 20px; padding: 24px; border-radius: var(--rd-raio-borda); background: var(--rd-cor-fundo-alt); font-size: .95rem; }
+    .rd-sapres__ficha dt { font-family: var(--rd-fonte-titulo); font-weight: 600; color: var(--rd-azul-escuro); }
+    .rd-sapres__ficha dd { margin: 0; color: var(--rd-cor-texto-claro); }
+    .rd-sapres__mosaico { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 14px; aspect-ratio: 1 / 1; }
+    .rd-sapres__mosaico figure { margin: 0; border-radius: var(--rd-raio-borda); overflow: hidden; }
+    .rd-sapres__mosaico figure:first-child { grid-row: span 2; border-radius: var(--rd-raio-lg) var(--rd-raio-borda) var(--rd-raio-borda) 80px; }
+    .rd-sapres__mosaico img { width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 900px) { .rd-sapres__grid { grid-template-columns: 1fr; } .rd-sapres__mosaico { max-width: 560px; } }
+    @media (max-width: 480px) { .rd-sapres__ficha { grid-template-columns: 1fr; gap: 4px; } .rd-sapres__ficha dd { margin-bottom: 10px; } }
+  </style>
+
+  <div class="rd-container rd-sapres__grid">
+    <div class="rd-sapres__texto">
+      <span class="rd-eyebrow rd-revela">Apresentação</span>
+      <h2 id="rd-sapres-titulo" class="rd-titulo rd-revela">Instituto Técnico Privado de Saúde do Sambizanga</h2>
+      <p class="rd-revela">O ITPSS é uma instituição privada de formação técnica na área da saúde, instalada no Município do Hoji Ya Henda, em Luanda.</p>
+      <p class="rd-revela">Aqui formam-se técnicos em Estomatologia, Farmácia e Fisioterapia. As aulas juntam a componente teórica ao trabalho prático, para que cada estudante saia preparado para exercer junto de quem precisa de cuidados de saúde.</p>
+      <dl class="rd-sapres__ficha rd-revela">
+        <dt>Cursos</dt><dd>Estomatologia, Farmácia e Fisioterapia</dd>
+        <dt>Morada</dt><dd>{{rua}}, {{municipio}}, {{referencia}}</dd>
+        <dt>Lema</dt><dd>{{slogan}}</dd>
+      </dl>
+    </div>
+    <div class="rd-sapres__mosaico rd-revela" style="--rd-atraso:.1s">
+      <figure><img src="assets/img/galeria/g07-560.webp" alt="Estudante do ITPSS na farmácia escola" width="560" height="372" loading="lazy"></figure>
+      <figure><img src="assets/img/galeria/g10-560.webp" alt="Turma do ITPSS numa aula prática de anatomia" width="560" height="372" loading="lazy"></figure>
+      <figure><img src="assets/img/galeria/g09-560.webp" alt="Estudantes do ITPSS a analisar embalagens de medicamentos" width="560" height="372" loading="lazy"></figure>
+    </div>
+  </div>
+</section>

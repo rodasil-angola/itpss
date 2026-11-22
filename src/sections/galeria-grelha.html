@@ -1,0 +1,148 @@
+<section class="rd-gal" aria-labelledby="rd-gal-titulo">
+  <style>
+    .rd-gal { padding: var(--rd-espaco-xl) 0 0; }
+    .rd-gal__topo { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 36px; }
+    .rd-gal__filtros { display: flex; flex-wrap: wrap; gap: 8px; }
+    .rd-gal__filtros button { min-height: 42px; padding: 0 18px; border-radius: 999px; border: 1.5px solid var(--rd-cor-linha); background: #fff; cursor: pointer; font-family: var(--rd-fonte-titulo); font-weight: 600; font-size: .86rem; color: var(--rd-azul-escuro); transition: background-color .25s, border-color .25s, color .25s; }
+    .rd-gal__filtros button:hover { border-color: var(--rd-azul); color: var(--rd-azul); }
+    .rd-gal__filtros button[aria-pressed="true"] { background: var(--rd-azul-escuro); border-color: var(--rd-azul-escuro); color: #fff; }
+    .rd-gal__grelha { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: clamp(150px, 15vw, 210px); grid-auto-flow: dense; gap: 12px; }
+    .rd-gal__item { border-radius: var(--rd-raio-borda); overflow: hidden; background: var(--rd-cor-fundo-alt); animation: rd-gal-in .5s var(--rd-ease); }
+    .rd-gal__item--grande { grid-column: span 2; grid-row: span 2; }
+    .rd-gal__item[hidden] { display: none; }
+    @keyframes rd-gal-in { from { opacity: 0; transform: scale(.97); } }
+    .rd-gal__item button { position: relative; display: block; width: 100%; height: 100%; padding: 0; border: 0; background: none; cursor: zoom-in; }
+    .rd-gal__item img { width: 100%; height: 100%; object-fit: cover; transition: transform .9s var(--rd-ease), filter .5s; }
+    .rd-gal__item button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(18, 54, 90, .55)); opacity: 0; transition: opacity .4s; }
+    .rd-gal__item button:hover img { transform: scale(1.06); }
+    .rd-gal__item button:hover::after, .rd-gal__item button:focus-visible::after { opacity: 1; }
+    .rd-gal__lupa { position: absolute; right: 14px; bottom: 14px; z-index: 1; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: #fff; color: var(--rd-azul-escuro); opacity: 0; transform: translateY(8px); transition: opacity .35s, transform .35s var(--rd-ease); }
+    .rd-gal__lupa .rd-icon { width: 18px; height: 18px; }
+    .rd-gal__item button:hover .rd-gal__lupa, .rd-gal__item button:focus-visible .rd-gal__lupa { opacity: 1; transform: none; }
+    .rd-gal__aviso { display: flex; gap: 10px; align-items: flex-start; margin-top: 24px; font-size: .85rem; color: var(--rd-cor-texto-claro); }
+    .rd-gal__aviso .rd-icon { width: 18px; height: 18px; margin-top: 2px; }
+
+    .rd-gal__lb { position: fixed; inset: 0; z-index: 200; display: grid; grid-template-columns: 64px 1fr 64px; align-items: center; padding: 64px 12px 24px; background: rgba(9, 25, 43, .94); opacity: 0; visibility: hidden; transition: opacity .3s, visibility .3s; }
+    .rd-gal__lb.is-aberto { opacity: 1; visibility: visible; }
+    .rd-gal__lb figure { margin: 0; display: grid; justify-items: center; gap: 14px; min-height: 0; height: 100%; align-content: center; }
+    .rd-gal__lb img { max-width: 100%; max-height: calc(100vh - 150px); border-radius: var(--rd-raio-sm); box-shadow: 0 30px 60px rgba(0, 0, 0, .4); }
+    .rd-gal__lb figcaption { color: rgba(255, 255, 255, .85); font-size: .92rem; text-align: center; }
+    .rd-gal__lb button { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .25); background: rgba(255, 255, 255, .06); color: #fff; cursor: pointer; transition: background-color .25s; justify-self: center; }
+    .rd-gal__lb button:hover { background: rgba(255, 255, 255, .16); }
+    .rd-gal__lb .rd-icon { width: 22px; height: 22px; }
+    .rd-gal__lb-fechar { position: absolute; top: 14px; right: 14px; }
+    body.rd-lb-aberto { overflow: hidden; }
+
+    @media (max-width: 900px) { .rd-gal__grelha { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 640px) {
+      .rd-gal__grelha { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; gap: 8px; }
+      .rd-gal__lb { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr auto; padding: 64px 12px 20px; }
+      .rd-gal__lb figure { grid-column: 1 / -1; }
+      .rd-gal__lb-ant, .rd-gal__lb-seg { grid-row: 2; }
+    }
+  </style>
+
+  <div class="rd-container">
+    <div class="rd-gal__topo">
+      <div>
+        <span class="rd-eyebrow rd-revela">Vida académica</span>
+        <h2 id="rd-gal-titulo" class="rd-titulo rd-revela">Aulas, laboratórios e momentos do ITPSS.</h2>
+      </div>
+      <div class="rd-gal__filtros rd-revela" role="group" aria-label="Filtrar imagens">
+        <button type="button" data-filtro="todas" aria-pressed="true">Todas</button>
+        <button type="button" data-filtro="estudantes" aria-pressed="false">Estudantes</button>
+        <button type="button" data-filtro="formacao" aria-pressed="false">Formação</button>
+        <button type="button" data-filtro="laboratorios" aria-pressed="false">Laboratórios</button>
+        <button type="button" data-filtro="actividades" aria-pressed="false">Actividades</button>
+      </div>
+    </div>
+
+    <!-- Para trocar uma imagem: substituir os ficheiros gNN.webp / gNN-560.webp em assets/img/galeria e actualizar o texto alt -->
+    <ul class="rd-gal__grelha">
+      <li class="rd-gal__item rd-gal__item--grande" data-cat="estudantes"><button type="button" data-full="assets/img/galeria/g01.webp" aria-label="Ampliar: Grupo de estudantes e formadores do ITPSS no laboratório"><img src="assets/img/galeria/g01-560.webp" alt="Grupo de estudantes e formadores do ITPSS no laboratório" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="estudantes"><button type="button" data-full="assets/img/galeria/g02.webp" aria-label="Ampliar: Estudantes do ITPSS de bata e máscara durante uma actividade"><img src="assets/img/galeria/g02-560.webp" alt="Estudantes do ITPSS de bata e máscara durante uma actividade" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="estudantes"><button type="button" data-full="assets/img/galeria/g03.webp" aria-label="Ampliar: Estudantes do ITPSS com material de estudo"><img src="assets/img/galeria/g03-560.webp" alt="Estudantes do ITPSS com material de estudo" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item rd-gal__item--grande" data-cat="actividades"><button type="button" data-full="assets/img/galeria/g04.webp" aria-label="Ampliar: Pátio interior do ITPSS cheio de estudantes"><img src="assets/img/galeria/g04-560.webp" alt="Pátio interior do ITPSS cheio de estudantes" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="actividades"><button type="button" data-full="assets/img/galeria/g05.webp" aria-label="Ampliar: Estudantes reunidos no pátio do instituto"><img src="assets/img/galeria/g05-560.webp" alt="Estudantes reunidos no pátio do instituto" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="formacao"><button type="button" data-full="assets/img/galeria/g06.webp" aria-label="Ampliar: Estudantes do ITPSS em aula"><img src="assets/img/galeria/g06-560.webp" alt="Estudantes do ITPSS em aula" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="laboratorios"><button type="button" data-full="assets/img/galeria/g07.webp" aria-label="Ampliar: Estudante do ITPSS na farmácia escola"><img src="assets/img/galeria/g07-560.webp" alt="Estudante do ITPSS na farmácia escola" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="laboratorios"><button type="button" data-full="assets/img/galeria/g08.webp" aria-label="Ampliar: Estudante explica anatomia num modelo de esqueleto"><img src="assets/img/galeria/g08-560.webp" alt="Estudante explica anatomia num modelo de esqueleto" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item rd-gal__item--grande" data-cat="laboratorios"><button type="button" data-full="assets/img/galeria/g09.webp" aria-label="Ampliar: Estudantes analisam embalagens de medicamentos"><img src="assets/img/galeria/g09-560.webp" alt="Estudantes analisam embalagens de medicamentos" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="formacao"><button type="button" data-full="assets/img/galeria/g10.webp" aria-label="Ampliar: Turma numa aula prática de anatomia"><img src="assets/img/galeria/g10-560.webp" alt="Turma numa aula prática de anatomia" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="laboratorios"><button type="button" data-full="assets/img/galeria/g11.webp" aria-label="Ampliar: Estudante aponta estruturas no modelo de esqueleto"><img src="assets/img/galeria/g11-560.webp" alt="Estudante aponta estruturas no modelo de esqueleto" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="formacao"><button type="button" data-full="assets/img/galeria/g12.webp" aria-label="Ampliar: Estudantes durante uma aula prática"><img src="assets/img/galeria/g12-560.webp" alt="Estudantes durante uma aula prática" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="laboratorios"><button type="button" data-full="assets/img/galeria/g13.webp" aria-label="Ampliar: Formador explica anatomia com um modelo de esqueleto"><img src="assets/img/galeria/g13-560.webp" alt="Formador explica anatomia com um modelo de esqueleto" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="laboratorios"><button type="button" data-full="assets/img/galeria/g14.webp" aria-label="Ampliar: Formador e estudante numa demonstração no laboratório"><img src="assets/img/galeria/g14-560.webp" alt="Formador e estudante numa demonstração no laboratório" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="formacao"><button type="button" data-full="assets/img/galeria/g15.webp" aria-label="Ampliar: Estudantes acompanham uma explicação prática"><img src="assets/img/galeria/g15-560.webp" alt="Estudantes acompanham uma explicação prática" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="formacao"><button type="button" data-full="assets/img/galeria/g16.webp" aria-label="Ampliar: Estudantes praticam técnicas em grupo"><img src="assets/img/galeria/g16-560.webp" alt="Estudantes praticam técnicas em grupo" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item rd-gal__item--grande" data-cat="actividades"><button type="button" data-full="assets/img/galeria/g17.webp" aria-label="Ampliar: Cerimónia académica do ITPSS ao ar livre"><img src="assets/img/galeria/g17-560.webp" alt="Cerimónia académica do ITPSS ao ar livre" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="actividades"><button type="button" data-full="assets/img/galeria/g18.webp" aria-label="Ampliar: Finalista na cerimónia de graduação"><img src="assets/img/galeria/g18-560.webp" alt="Finalista na cerimónia de graduação" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="estudantes"><button type="button" data-full="assets/img/galeria/g19.webp" aria-label="Ampliar: Finalistas do ITPSS a celebrar a graduação"><img src="assets/img/galeria/g19-560.webp" alt="Finalistas do ITPSS a celebrar a graduação" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="actividades"><button type="button" data-full="assets/img/galeria/g20.webp" aria-label="Ampliar: Encontro académico no auditório"><img src="assets/img/galeria/g20-560.webp" alt="Encontro académico no auditório" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+      <li class="rd-gal__item" data-cat="actividades"><button type="button" data-full="assets/img/galeria/g21.webp" aria-label="Ampliar: Estudantes no auditório durante uma palestra"><img src="assets/img/galeria/g21-560.webp" alt="Estudantes no auditório durante uma palestra" width="560" height="372" loading="lazy"><span class="rd-gal__lupa" aria-hidden="true">{{icon:ampliar}}</span></button></li>
+    </ul>
+    <p class="rd-gal__aviso">{{icon:info}} Imagens do arquivo do instituto. A selecção pode ser actualizada com novas fotografias a qualquer momento.</p>
+  </div>
+
+  <div class="rd-gal__lb" role="dialog" aria-modal="true" aria-label="Visualizador de imagens">
+    <button class="rd-gal__lb-fechar" type="button" aria-label="Fechar">{{icon:fechar}}</button>
+    <button class="rd-gal__lb-ant" type="button" aria-label="Imagem anterior">{{icon:esquerda}}</button>
+    <figure><img src="" alt=""><figcaption></figcaption></figure>
+    <button class="rd-gal__lb-seg" type="button" aria-label="Imagem seguinte">{{icon:direita}}</button>
+  </div>
+
+  <script>
+    (function () {
+      var raiz = document.querySelector('.rd-gal');
+      if (!raiz) return;
+      var itens = Array.prototype.slice.call(raiz.querySelectorAll('.rd-gal__item'));
+      var filtros = raiz.querySelectorAll('[data-filtro]');
+      filtros.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var f = b.getAttribute('data-filtro');
+          filtros.forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+          itens.forEach(function (it) { it.hidden = !(f === 'todas' || it.getAttribute('data-cat') === f); });
+        });
+      });
+
+      var lb = raiz.querySelector('.rd-gal__lb');
+      var img = lb.querySelector('img');
+      var cap = lb.querySelector('figcaption');
+      var actual = 0;
+      var origem = null;
+      function visiveis() { return itens.filter(function (it) { return !it.hidden; }); }
+      function mostrar(i) {
+        var lista = visiveis();
+        actual = (i + lista.length) % lista.length;
+        var b = lista[actual].querySelector('button');
+        var t = lista[actual].querySelector('img').alt;
+        img.src = b.getAttribute('data-full');
+        img.alt = t;
+        cap.textContent = t + ' (' + (actual + 1) + ' de ' + lista.length + ')';
+      }
+      function abrir(i) { origem = document.activeElement; mostrar(i); lb.classList.add('is-aberto'); document.body.classList.add('rd-lb-aberto'); lb.querySelector('.rd-gal__lb-fechar').focus(); }
+      function fechar() { lb.classList.remove('is-aberto'); document.body.classList.remove('rd-lb-aberto'); if (origem) origem.focus(); }
+      itens.forEach(function (it) {
+        it.querySelector('button').addEventListener('click', function () { abrir(visiveis().indexOf(it)); });
+      });
+      lb.querySelector('.rd-gal__lb-fechar').addEventListener('click', fechar);
+      lb.querySelector('.rd-gal__lb-ant').addEventListener('click', function () { mostrar(actual - 1); });
+      lb.querySelector('.rd-gal__lb-seg').addEventListener('click', function () { mostrar(actual + 1); });
+      lb.addEventListener('click', function (e) { if (e.target === lb || e.target.tagName === 'FIGURE') fechar(); });
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('is-aberto')) return;
+        if (e.key === 'Escape') fechar();
+        if (e.key === 'ArrowLeft') mostrar(actual - 1);
+        if (e.key === 'ArrowRight') mostrar(actual + 1);
+      });
+      var x0 = null;
+      lb.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      lb.addEventListener('touchend', function (e) {
+        if (x0 === null) return;
+        var dx = e.changedTouches[0].clientX - x0;
+        if (Math.abs(dx) > 50) mostrar(actual + (dx < 0 ? 1 : -1));
+        x0 = null;
+      });
+    })();
+  </script>
+</section>

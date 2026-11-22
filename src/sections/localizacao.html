@@ -1,0 +1,65 @@
+<section class="rd-local" aria-labelledby="rd-local-titulo">
+  <style>
+    .rd-local { padding: 0 0 var(--rd-espaco-xl); background: var(--rd-cor-fundo); }
+    .rd-local__grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 24px; align-items: stretch; }
+    .rd-local__info { padding: clamp(32px, 4vw, 48px); border-radius: var(--rd-raio-lg); background: var(--rd-azul-claro); }
+    .rd-local__bloco { display: flex; gap: 16px; margin-top: 28px; }
+    .rd-local__bloco > .rd-icon { width: 46px; height: 46px; padding: 12px; border-radius: 13px; background: #fff; color: var(--rd-azul); box-shadow: var(--rd-sombra-suave); }
+    .rd-local__bloco h3 { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--rd-cor-texto-claro); font-weight: 600; }
+    .rd-local__bloco p, .rd-local__bloco a { font-size: 1.05rem; color: var(--rd-azul-escuro); font-weight: 500; margin-top: 4px; }
+    .rd-local__bloco a { display: inline-block; text-decoration: none; }
+    .rd-local__bloco a:hover { color: var(--rd-azul); text-decoration: underline; }
+    .rd-local__tels { display: flex; flex-wrap: wrap; gap: 4px 20px; }
+    .rd-local__acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .rd-local__mapa { position: relative; min-height: 380px; border-radius: var(--rd-raio-lg); overflow: hidden; background: #DCE8F2; display: grid; place-items: center; text-align: center; }
+    .rd-local__mapa::before { content: ""; position: absolute; inset: 0; opacity: .9; background-image: linear-gradient(rgba(23, 105, 170, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 105, 170, .1) 1px, transparent 1px); background-size: 36px 36px; }
+    .rd-local__mapa svg.rd-local__ruas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .rd-local__pin { position: relative; z-index: 1; display: grid; justify-items: center; gap: 14px; padding: 24px; }
+    .rd-local__pin > span { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); background: var(--rd-azul); box-shadow: 0 14px 28px rgba(23, 105, 170, .35); }
+    .rd-local__pin > span img { width: 44px; height: 44px; border-radius: 50%; transform: rotate(45deg); background: #fff; }
+    .rd-local__pin p { font-family: var(--rd-fonte-titulo); font-weight: 600; color: var(--rd-azul-escuro); }
+    .rd-local__pin small { display: block; font-family: var(--rd-fonte-corpo); font-weight: 400; color: var(--rd-cor-texto-claro); font-size: .85rem; margin-top: 4px; }
+    @media (max-width: 900px) { .rd-local__grid { grid-template-columns: 1fr; } .rd-local__mapa { min-height: 300px; } .rd-local__acoes .rd-btn { flex: 1 1 100%; } }
+  </style>
+
+  <div class="rd-container rd-local__grid">
+    <div class="rd-local__info rd-revela">
+      <span class="rd-eyebrow">Localização e Contactos</span>
+      <h2 id="rd-local-titulo" class="rd-titulo">Visita-nos no Hoji Ya Henda.</h2>
+
+      <div class="rd-local__bloco">
+        {{icon:pin}}
+        <div>
+          <h3>Morada</h3>
+          <p>{{municipio}}<br>{{rua}}<br>{{referencia}}</p>
+        </div>
+      </div>
+      <div class="rd-local__bloco">
+        {{icon:telefone}}
+        <div>
+          <h3>Telefones</h3>
+          <div class="rd-local__tels"><a href="{{tel1_href}}">{{tel1}}</a><a href="{{tel2_href}}">{{tel2}}</a></div>
+        </div>
+      </div>
+
+      <div class="rd-local__acoes">
+        <a class="rd-btn rd-btn--whats" href="contactos.html" data-whats>{{icon:whatsapp}} Abrir o WhatsApp</a>
+        <a class="rd-btn rd-btn--contorno" href="{{tel1_href}}">{{icon:telefone}} Ligar agora</a>
+      </div>
+    </div>
+
+    <!-- Espaço reservado para o Google Maps: substituir o conteúdo deste <div> por um <iframe> de incorporação -->
+    <div class="rd-local__mapa rd-revela" style="--rd-atraso:.1s" data-mapa-reservado>
+      <svg class="rd-local__ruas" viewBox="0 0 600 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path d="M-20 260 C 120 230, 220 300, 360 250 S 560 180, 640 210" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round"/>
+        <path d="M180 -20 C 200 120, 260 200, 240 420" fill="none" stroke="#fff" stroke-width="12" stroke-linecap="round"/>
+        <path d="M420 -20 L 460 420" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+      </svg>
+      <div class="rd-local__pin">
+        <span><img src="assets/img/logo-itpss.webp" alt="" width="44" height="44" loading="lazy"></span>
+        <p>ITPSS<small>Junto ao Hospital do Sambizanga</small></p>
+        <a class="rd-btn rd-btn--sm" href="{{mapa_href}}" target="_blank" rel="noopener">{{icon:mapa}} Abrir no Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>

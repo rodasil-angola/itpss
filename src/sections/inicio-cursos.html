@@ -1,0 +1,78 @@
+<section class="rd-icursos" aria-labelledby="rd-icursos-titulo">
+  <style>
+    .rd-icursos { padding: var(--rd-espaco-xl) 0; background: var(--rd-cor-fundo-alt); position: relative; }
+    .rd-icursos__topo { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: clamp(36px, 5vw, 56px); }
+    .rd-icursos__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .rd-icursos__card { display: flex; flex-direction: column; background: #fff; border-radius: var(--rd-raio-lg); overflow: hidden; box-shadow: var(--rd-sombra-suave); border: 1px solid rgba(18, 54, 90, .05); transition: transform .45s var(--rd-ease), box-shadow .45s var(--rd-ease); }
+    .rd-icursos__card:hover { transform: translateY(-6px); box-shadow: var(--rd-sombra-forte); }
+    .rd-icursos__foto { position: relative; aspect-ratio: 16 / 11; overflow: hidden; }
+    .rd-icursos__foto img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--rd-ease); }
+    .rd-icursos__card:hover .rd-icursos__foto img { transform: scale(1.06); }
+    .rd-icursos__icone { position: absolute; left: 22px; bottom: -26px; z-index: 2; display: grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; background: var(--rd-azul); color: #fff; box-shadow: 0 10px 22px rgba(23, 105, 170, .35); }
+    .rd-icursos__icone .rd-icon { width: 28px; height: 28px; stroke-width: 1.6; }
+    .rd-icursos__card:nth-child(2) .rd-icursos__icone { background: var(--rd-turquesa); box-shadow: 0 10px 22px rgba(33, 166, 154, .35); }
+    .rd-icursos__card:nth-child(3) .rd-icursos__icone { background: var(--rd-azul-escuro); box-shadow: 0 10px 22px rgba(18, 54, 90, .35); }
+    .rd-icursos__foto { overflow: visible; }
+    .rd-icursos__foto > div { position: absolute; inset: 0; overflow: hidden; }
+    .rd-icursos__corpo { display: flex; flex-direction: column; flex: 1; padding: 44px 26px 26px; }
+    .rd-icursos__corpo small { font-family: var(--rd-fonte-titulo); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; color: var(--rd-turquesa); font-weight: 600; }
+    .rd-icursos__corpo h3 { font-size: 1.4rem; margin-top: 6px; font-weight: 700; letter-spacing: .01em; }
+    .rd-icursos__corpo p { margin-top: 12px; color: var(--rd-cor-texto-claro); flex: 1; }
+    .rd-icursos__corpo .rd-btn { margin-top: 24px; align-self: flex-start; }
+    @media (max-width: 960px) { .rd-icursos__grid { grid-template-columns: 1fr 1fr; } .rd-icursos__card:last-child { grid-column: 1 / -1; } .rd-icursos__card:last-child .rd-icursos__foto { aspect-ratio: 16 / 7; } }
+    @media (max-width: 640px) { .rd-icursos__grid { grid-template-columns: 1fr; } .rd-icursos__card:last-child .rd-icursos__foto { aspect-ratio: 16 / 11; } }
+  </style>
+
+  <div class="rd-container">
+    <div class="rd-icursos__topo">
+      <div>
+        <span class="rd-eyebrow rd-revela">Os Nossos Cursos</span>
+        <h2 id="rd-icursos-titulo" class="rd-titulo rd-revela">Escolhe o teu caminho na área da saúde.</h2>
+        <p class="rd-lead rd-revela">Conhece as oportunidades de formação disponibilizadas pelo ITPSS.</p>
+      </div>
+      <a class="rd-link rd-revela" href="cursos.html">Ver página dos cursos {{icon:seta}}</a>
+    </div>
+
+    <div class="rd-icursos__grid">
+      <!-- Cartão de curso: duplicar este <article> para acrescentar um curso -->
+      <article class="rd-icursos__card rd-revela">
+        <div class="rd-icursos__foto">
+          <div><img src="assets/img/curso-estomatologia-720.webp" alt="Estudantes do ITPSS em aula prática" width="720" height="478" loading="lazy"></div>
+          <span class="rd-icursos__icone" aria-hidden="true">{{icon:dente}}</span>
+        </div>
+        <div class="rd-icursos__corpo">
+          <small>Saúde oral</small>
+          <h3>Estomatologia</h3>
+          <p>Formação técnica orientada para a área da saúde oral.</p>
+          <a class="rd-btn rd-btn--contorno rd-btn--sm" href="admissoes.html?curso=Estomatologia#pedido">Solicitar Informações {{icon:seta}}</a>
+        </div>
+      </article>
+
+      <article class="rd-icursos__card rd-revela" style="--rd-atraso:.1s">
+        <div class="rd-icursos__foto">
+          <div><img src="assets/img/curso-farmacia-720.webp" alt="Estudante do ITPSS junto a prateleiras de medicamentos na farmácia escola" width="720" height="478" loading="lazy"></div>
+          <span class="rd-icursos__icone" aria-hidden="true">{{icon:capsula}}</span>
+        </div>
+        <div class="rd-icursos__corpo">
+          <small>Medicamentos</small>
+          <h3>Farmácia</h3>
+          <p>Formação técnica relacionada com medicamentos e práticas farmacêuticas.</p>
+          <a class="rd-btn rd-btn--contorno rd-btn--sm" href="admissoes.html?curso=Farmácia#pedido">Solicitar Informações {{icon:seta}}</a>
+        </div>
+      </article>
+
+      <article class="rd-icursos__card rd-revela" style="--rd-atraso:.2s">
+        <div class="rd-icursos__foto">
+          <div><img src="assets/img/curso-fisioterapia-720.webp" alt="Formador demonstra técnica prática a estudantes do ITPSS" width="720" height="478" loading="lazy"></div>
+          <span class="rd-icursos__icone" aria-hidden="true">{{icon:reabilitacao}}</span>
+        </div>
+        <div class="rd-icursos__corpo">
+          <small>Reabilitação</small>
+          <h3>Fisioterapia</h3>
+          <p>Formação técnica orientada para a reabilitação e recuperação funcional.</p>
+          <a class="rd-btn rd-btn--contorno rd-btn--sm" href="admissoes.html?curso=Fisioterapia#pedido">Solicitar Informações {{icon:seta}}</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

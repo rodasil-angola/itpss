@@ -1,0 +1,38 @@
+<section class="rd-cta" aria-labelledby="rd-cta-titulo">
+  <style>
+    .rd-cta { padding: var(--rd-espaco-xl) 0; background: var(--rd-cor-fundo); }
+    .rd-cta__caixa { position: relative; isolation: isolate; overflow: hidden; display: grid; grid-template-columns: 1.1fr .9fr; border-radius: clamp(20px, 3vw, 32px); background: var(--rd-azul-escuro); color: #fff; box-shadow: var(--rd-sombra-forte); }
+    .rd-cta__caixa::before { content: ""; position: absolute; inset: 0; z-index: -1; background: radial-gradient(60% 90% at 0% 0%, rgba(23, 105, 170, .6), transparent 70%), radial-gradient(40% 60% at 60% 110%, rgba(33, 166, 154, .35), transparent 70%); }
+    .rd-cta__texto { padding: clamp(40px, 6vw, 80px); }
+    .rd-cta .rd-eyebrow { color: #7FE0D6; }
+    .rd-cta h2 { color: #fff; font-size: clamp(1.9rem, 4vw, 3rem); font-weight: 700; margin-top: 16px; text-wrap: balance; }
+    .rd-cta p { color: rgba(255, 255, 255, .8); margin-top: 18px; max-width: 46ch; font-size: 1.08rem; }
+    .rd-cta__acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .rd-cta__foto { position: relative; min-height: 320px; }
+    .rd-cta__foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .rd-cta__foto::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg, var(--rd-azul-escuro), rgba(18, 54, 90, 0) 45%); }
+    @media (max-width: 860px) {
+      .rd-cta__caixa { grid-template-columns: 1fr; }
+      .rd-cta__foto { order: -1; min-height: 220px; }
+      .rd-cta__foto::before { background: linear-gradient(0deg, var(--rd-azul-escuro), rgba(18, 54, 90, 0) 60%); }
+      .rd-cta__acoes .rd-btn { flex: 1 1 100%; }
+    }
+  </style>
+
+  <div class="rd-container">
+    <div class="rd-cta__caixa rd-revela">
+      <div class="rd-cta__texto">
+        <span class="rd-eyebrow">Admissões</span>
+        <h2 id="rd-cta-titulo">O teu futuro na saúde começa aqui!</h2>
+        <p>Está preparado para dar o próximo passo na tua formação? Contacta o ITPSS e conhece as oportunidades disponíveis.</p>
+        <div class="rd-cta__acoes">
+          <a class="rd-btn rd-btn--turquesa" href="admissoes.html#pedido">Solicitar Informações {{icon:seta}}</a>
+          <a class="rd-btn rd-btn--whats" href="contactos.html" data-whats="Olá! Gostaria de saber mais sobre as admissões no ITPSS.">{{icon:whatsapp}} Contactar pelo WhatsApp</a>
+        </div>
+      </div>
+      <div class="rd-cta__foto">
+        <img src="assets/img/admissoes-cta-720.webp" srcset="assets/img/admissoes-cta-720.webp 720w, assets/img/admissoes-cta.webp 1074w" sizes="(max-width: 860px) 92vw, 42vw" alt="Finalistas do ITPSS a celebrar na cerimónia de graduação" width="1074" height="713" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>

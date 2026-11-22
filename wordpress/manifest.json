@@ -1,0 +1,148 @@
+{
+  "gerado": "2026-11-22T21:43:27.591Z",
+  "global_css": "wordpress/global.css",
+  "partes_do_tema": [
+    "00-cabecalho.html",
+    "99-rodape.html"
+  ],
+  "paginas": [
+    {
+      "pagina": "index.html",
+      "titulo_seo": "ITPSS | Instituto Técnico Privado de Saúde do Sambizanga, Luanda",
+      "descricao_seo": "Formação técnica em Estomatologia, Farmácia e Fisioterapia no Instituto Técnico Privado de Saúde do Sambizanga, em Luanda. Formar o Homem para a Vida!",
+      "ordem": [
+        {
+          "arquivo": "inicio-hero.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "inicio-sobre.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "inicio-cursos.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "inicio-porque.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "cta-admissoes.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "localizacao.html",
+          "tipo": "estatica"
+        }
+      ]
+    },
+    {
+      "pagina": "sobre.html",
+      "titulo_seo": "Sobre Nós | ITPSS Luanda",
+      "descricao_seo": "Conheça o Instituto Técnico Privado de Saúde do Sambizanga, comprometido com a educação, a saúde e a preparação de profissionais qualificados em Luanda.",
+      "ordem": [
+        {
+          "arquivo": "sobre-hero.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "sobre-apresentacao.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "sobre-compromisso.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "sobre-slogan.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "cta-admissoes.html",
+          "tipo": "estatica"
+        }
+      ]
+    },
+    {
+      "pagina": "cursos.html",
+      "titulo_seo": "Cursos | Estomatologia, Farmácia e Fisioterapia | ITPSS",
+      "descricao_seo": "Cursos técnicos de saúde no ITPSS, em Luanda: Estomatologia, Farmácia e Fisioterapia. Solicite informações.",
+      "ordem": [
+        {
+          "arquivo": "cursos-hero.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "cursos-lista.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "cta-admissoes.html",
+          "tipo": "estatica"
+        }
+      ]
+    },
+    {
+      "pagina": "admissoes.html",
+      "titulo_seo": "Admissões | Pedido de Informações | ITPSS",
+      "descricao_seo": "Peça informações sobre admissões nos cursos técnicos de saúde do ITPSS, em Luanda. Contacte-nos por telefone ou WhatsApp.",
+      "ordem": [
+        {
+          "arquivo": "admissoes-hero.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "admissoes-form.html",
+          "tipo": "estatica"
+        },
+        {
+          "nota": "Na integração WordPress, substituir o formulário demonstrativo por Contact Form 7 / WPForms com os mesmos campos.",
+          "tipo": "nativa"
+        }
+      ]
+    },
+    {
+      "pagina": "galeria.html",
+      "titulo_seo": "Galeria | Vida académica no ITPSS",
+      "descricao_seo": "Imagens das aulas práticas, laboratórios, estudantes e actividades académicas do Instituto Técnico Privado de Saúde do Sambizanga.",
+      "ordem": [
+        {
+          "arquivo": "galeria-hero.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "galeria-grelha.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "cta-admissoes.html",
+          "tipo": "estatica"
+        }
+      ]
+    },
+    {
+      "pagina": "contactos.html",
+      "titulo_seo": "Contactos | ITPSS, Hoji Ya Henda, Luanda",
+      "descricao_seo": "Morada, telefones e WhatsApp do ITPSS: Rua Eliseu Alves, Município do Hoji Ya Henda, junto ao Hospital do Sambizanga, Luanda.",
+      "ordem": [
+        {
+          "arquivo": "contactos-hero.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "contactos-info.html",
+          "tipo": "estatica"
+        },
+        {
+          "arquivo": "contactos-mapa.html",
+          "tipo": "estatica"
+        },
+        {
+          "nota": "Na integração WordPress, substituir o formulário demonstrativo por Contact Form 7 / WPForms com os mesmos campos.",
+          "tipo": "nativa"
+        }
+      ]
+    }
+  ]
+}

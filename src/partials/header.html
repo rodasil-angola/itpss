@@ -1,0 +1,19 @@
+  <header class="rd-header">
+    <div class="rd-container rd-header__in">
+      <a class="rd-header__logo" href="index.html" aria-label="ITPSS, página inicial">
+        <img src="assets/img/logo-itpss.webp" alt="" width="50" height="50">
+        <span class="rd-header__marca"><b>ITPSS</b><span>Instituto Técnico Privado de Saúde do Sambizanga</span></span>
+      </a>
+      <nav class="rd-nav" id="rd-nav" aria-label="Navegação principal">
+        <ul>
+          {{nav}}
+        </ul>
+        <div class="rd-nav__extra">
+          <a class="rd-btn rd-btn--turquesa" href="admissoes.html">Candidatar-me {{icon:seta}}</a>
+          <a class="rd-btn rd-btn--claro" href="{{tel1_href}}">{{icon:telefone}} {{tel1}}</a>
+        </div>
+      </nav>
+      <a class="rd-btn rd-btn--turquesa rd-btn--sm rd-header__cta" href="admissoes.html">Candidatar-me {{icon:seta}}</a>
+      <button class="rd-header__toggle" type="button" aria-controls="rd-nav" aria-expanded="false" aria-label="Abrir menu">{{icon:menu}}{{icon:fechar}}</button>
+    </div>
+  </header>

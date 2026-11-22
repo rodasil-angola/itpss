@@ -1,0 +1,56 @@
+<section class="rd-porque" aria-labelledby="rd-porque-titulo">
+  <style>
+    .rd-porque { padding: var(--rd-espaco-xl) 0; background: #fff; overflow: hidden; }
+    .rd-porque__grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(40px, 6vw, 88px); align-items: start; }
+    .rd-porque__intro { position: sticky; top: calc(var(--rd-header-h) + 32px); }
+    .rd-porque__intro .rd-lead { margin-bottom: 32px; }
+    .rd-porque__foto { border-radius: var(--rd-raio-lg); overflow: hidden; aspect-ratio: 16 / 10; }
+    .rd-porque__foto img { width: 100%; height: 100%; object-fit: cover; }
+    .rd-porque__itens { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; list-style: none; margin: 0; padding: 0; counter-reset: rdp; }
+    .rd-porque__item { position: relative; padding: 32px 28px 30px; border-radius: var(--rd-raio-lg); background: var(--rd-cor-fundo-alt); border: 1px solid transparent; transition: background-color .35s, border-color .35s, transform .45s var(--rd-ease); counter-increment: rdp; }
+    .rd-porque__item:nth-child(even) { margin: 40px 0 -40px; }
+    .rd-porque__item:hover { background: #fff; border-color: var(--rd-cor-linha); }
+    .rd-porque__item::after { content: "0" counter(rdp); position: absolute; right: 24px; top: 26px; font-family: var(--rd-fonte-titulo); font-weight: 700; font-size: .82rem; color: #A9B8C8; letter-spacing: .05em; }
+    .rd-porque__icone { display: grid; place-items: center; width: 54px; height: 54px; border-radius: 15px; background: var(--rd-azul-claro); color: var(--rd-azul); transition: background-color .35s, color .35s; }
+    .rd-porque__item:hover .rd-porque__icone { background: var(--rd-azul); color: #fff; }
+    .rd-porque__icone .rd-icon { width: 26px; height: 26px; stroke-width: 1.6; }
+    .rd-porque__item h3 { font-size: 1.12rem; margin-top: 22px; font-weight: 600; }
+    .rd-porque__item p { margin-top: 10px; color: var(--rd-cor-texto-claro); font-size: .97rem; }
+    @media (max-width: 960px) { .rd-porque__grid { grid-template-columns: 1fr; } .rd-porque__intro { position: static; } .rd-porque__foto { display: none; } }
+    @media (max-width: 600px) { .rd-porque__itens { grid-template-columns: 1fr; } .rd-porque__item:nth-child(even) { margin: 0; } }
+  </style>
+
+  <div class="rd-container rd-porque__grid">
+    <div class="rd-porque__intro">
+      <span class="rd-eyebrow rd-revela">Porquê estudar no ITPSS?</span>
+      <h2 id="rd-porque-titulo" class="rd-titulo rd-revela">Aprender, desenvolver competências e servir.</h2>
+      <p class="rd-lead rd-revela">Quatro ideias guiam a forma como o instituto entende a formação em saúde.</p>
+      <div class="rd-porque__foto rd-revela">
+        <img src="assets/img/galeria/g08-560.webp" alt="Estudante do ITPSS a explicar a anatomia num modelo de esqueleto" width="560" height="372" loading="lazy">
+      </div>
+    </div>
+
+    <ul class="rd-porque__itens">
+      <li class="rd-porque__item rd-revela">
+        <span class="rd-porque__icone" aria-hidden="true">{{icon:coracao}}</span>
+        <h3>Formação na área da saúde</h3>
+        <p>Cursos técnicos para quem quer construir uma profissão ligada ao cuidado das pessoas.</p>
+      </li>
+      <li class="rd-porque__item rd-revela" style="--rd-atraso:.08s">
+        <span class="rd-porque__icone" aria-hidden="true">{{icon:microscopio}}</span>
+        <h3>Desenvolvimento de competências técnicas</h3>
+        <p>Teoria e prática lado a lado, com trabalho em laboratório e modelos de apoio às aulas.</p>
+      </li>
+      <li class="rd-porque__item rd-revela" style="--rd-atraso:.16s">
+        <span class="rd-porque__icone" aria-hidden="true">{{icon:maos}}</span>
+        <h3>Preparação para servir a sociedade</h3>
+        <p>Um técnico de saúde trabalha para a comunidade. Essa ideia acompanha a formação do início ao fim.</p>
+      </li>
+      <li class="rd-porque__item rd-revela" style="--rd-atraso:.24s">
+        <span class="rd-porque__icone" aria-hidden="true">{{icon:capelo}}</span>
+        <h3>Compromisso com a educação</h3>
+        <p>Está no próprio lema do instituto: formar o Homem para a Vida, e não apenas para um exame.</p>
+      </li>
+    </ul>
+  </div>
+</section>

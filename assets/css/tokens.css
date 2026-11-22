@@ -1,0 +1,53 @@
+/*
+  ITPSS — Tokens de design
+  ------------------------------------------------------------
+  Fonte única de cores, tipografia e espaçamento do site.
+  No WordPress: colar em Aparência → Personalizar → CSS Adicional
+  (antes de base.css), para que secções estáticas e blocos nativos
+  usem a mesma paleta.
+*/
+:root {
+  /* Paleta institucional */
+  --rd-azul-escuro: #12365A;
+  --rd-azul: #1769AA;
+  --rd-azul-claro: #EAF4FC;
+  --rd-branco: #FFFFFF;
+  --rd-turquesa: #21A69A;
+  --rd-verde-logo: #1E9A57;
+  --rd-cinza: #F5F7FA;
+
+  /* Papéis */
+  --rd-cor-primaria: var(--rd-azul);
+  --rd-cor-secundaria: var(--rd-azul-escuro);
+  --rd-cor-destaque: var(--rd-turquesa);
+  --rd-cor-texto: #1B2A3A;
+  --rd-cor-texto-claro: #5A6B7D;
+  --rd-cor-linha: #DDE6EF;
+  --rd-cor-fundo: var(--rd-branco);
+  --rd-cor-fundo-alt: var(--rd-cinza);
+
+  /* Tipografia */
+  --rd-fonte-titulo: "Sora", "Segoe UI", system-ui, sans-serif;
+  --rd-fonte-corpo: "Figtree", "Segoe UI", system-ui, sans-serif;
+  --rd-texto-base: 1.0625rem;
+
+  /* Espaçamento */
+  --rd-espaco-xs: 8px;
+  --rd-espaco-sm: 16px;
+  --rd-espaco-md: 24px;
+  --rd-espaco-lg: 48px;
+  --rd-espaco-xl: clamp(64px, 9vw, 120px);
+  --rd-largura: 1200px;
+  --rd-gutter: clamp(16px, 4vw, 32px);
+
+  /* Forma e profundidade */
+  --rd-raio-sm: 8px;
+  --rd-raio-borda: 14px;
+  --rd-raio-lg: 22px;
+  --rd-sombra-suave: 0 1px 2px rgba(18, 54, 90, .05), 0 8px 24px rgba(18, 54, 90, .08);
+  --rd-sombra-forte: 0 2px 4px rgba(18, 54, 90, .06), 0 24px 48px rgba(18, 54, 90, .16);
+
+  /* Movimento */
+  --rd-ease: cubic-bezier(.22, .61, .36, 1);
+  --rd-header-h: 78px;
+}

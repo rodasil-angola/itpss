@@ -1,0 +1,6 @@
+# Configuração local
+.claude/
+# Fotografias originais (o site usa as versões optimizadas em assets/img)
+/img/
+/*.jpg
+node_modules/

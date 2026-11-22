@@ -1,0 +1,99 @@
+<section class="rd-clista" aria-label="Lista de cursos">
+  <style>
+    .rd-clista { padding: var(--rd-espaco-xl) 0 0; }
+    .rd-clista__indice { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: clamp(48px, 7vw, 80px); }
+    .rd-clista__indice a { display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px 10px 12px; border-radius: 999px; border: 1.5px solid var(--rd-cor-linha); text-decoration: none; font-family: var(--rd-fonte-titulo); font-weight: 600; font-size: .9rem; color: var(--rd-azul-escuro); transition: border-color .25s, background-color .25s, color .25s; }
+    .rd-clista__indice a:hover { border-color: var(--rd-azul); background: var(--rd-azul-claro); color: var(--rd-azul); }
+    .rd-clista__indice .rd-icon { width: 20px; height: 20px; color: var(--rd-turquesa); }
+
+    .rd-curso { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 6vw, 80px); align-items: center; padding-bottom: clamp(64px, 9vw, 112px); }
+    .rd-curso:nth-of-type(even) .rd-curso__foto { order: 2; }
+    .rd-curso__foto { position: relative; border-radius: var(--rd-raio-lg); overflow: hidden; aspect-ratio: 4 / 3; box-shadow: var(--rd-sombra-suave); }
+    .rd-curso__foto img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--rd-ease); }
+    .rd-curso:hover .rd-curso__foto img { transform: scale(1.04); }
+    .rd-curso__num { position: absolute; left: 20px; top: 20px; padding: 8px 14px; border-radius: 999px; background: rgba(255, 255, 255, .92); font-family: var(--rd-fonte-titulo); font-weight: 600; font-size: .8rem; color: var(--rd-azul-escuro); }
+    .rd-curso__icone { display: grid; place-items: center; width: 60px; height: 60px; border-radius: 18px; background: var(--rd-azul-claro); color: var(--rd-azul); }
+    .rd-curso__icone .rd-icon { width: 30px; height: 30px; stroke-width: 1.5; }
+    .rd-curso h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-top: 22px; font-weight: 700; }
+    .rd-curso__intro { margin-top: 16px; font-size: 1.1rem; color: var(--rd-cor-texto); max-width: 50ch; }
+    .rd-curso__area { margin-top: 26px; display: flex; gap: 14px; align-items: flex-start; padding: 18px 20px; border-left: 3px solid var(--rd-turquesa); background: var(--rd-cor-fundo-alt); border-radius: 0 var(--rd-raio-sm) var(--rd-raio-sm) 0; }
+    .rd-curso__area dt { font-family: var(--rd-fonte-titulo); font-size: .72rem; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; color: var(--rd-turquesa); }
+    .rd-curso__area dd { margin: 4px 0 0; font-weight: 500; color: var(--rd-azul-escuro); }
+    .rd-curso__nota { margin-top: 16px; font-size: .88rem; color: var(--rd-cor-texto-claro); }
+    .rd-curso__acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    @media (max-width: 900px) {
+      .rd-curso { grid-template-columns: 1fr; }
+      .rd-curso:nth-of-type(even) .rd-curso__foto { order: 0; }
+      .rd-curso__acoes .rd-btn { flex: 1 1 100%; }
+    }
+  </style>
+
+  <div class="rd-container">
+    <nav class="rd-clista__indice rd-revela" aria-label="Ir para o curso">
+      <a href="#estomatologia">{{icon:dente}} Estomatologia</a>
+      <a href="#farmacia">{{icon:capsula}} Farmácia</a>
+      <a href="#fisioterapia">{{icon:reabilitacao}} Fisioterapia</a>
+    </nav>
+
+    <!--
+      MODELO DE CURSO
+      Para acrescentar um curso: copiar um <article class="rd-curso"> inteiro,
+      mudar o id, a imagem, o nome, a introdução, a área e o valor ?curso= do link.
+      A alternância imagem esquerda/direita é automática.
+    -->
+    <article class="rd-curso" id="estomatologia">
+      <div class="rd-curso__foto rd-revela">
+        <!-- Imagem provisória: substituir por fotografia das aulas de Estomatologia -->
+        <img src="assets/img/curso-estomatologia-720.webp" srcset="assets/img/curso-estomatologia-720.webp 720w, assets/img/curso-estomatologia.webp 1072w" sizes="(max-width: 900px) 92vw, 50vw" alt="Estudantes do ITPSS durante uma aula prática" width="1072" height="712" loading="lazy">
+        <span class="rd-curso__num">Curso 01</span>
+      </div>
+      <div class="rd-curso__texto rd-revela" style="--rd-atraso:.08s">
+        <span class="rd-curso__icone" aria-hidden="true">{{icon:dente}}</span>
+        <h2>Estomatologia</h2>
+        <p class="rd-curso__intro">Formação técnica orientada para a área da saúde oral.</p>
+        <dl class="rd-curso__area"><div><dt>Área de formação</dt><dd>Saúde oral</dd></div></dl>
+        <p class="rd-curso__nota">Plano de estudos, duração e condições de acesso: pede informações à secretaria.</p>
+        <div class="rd-curso__acoes">
+          <a class="rd-btn" href="admissoes.html?curso=Estomatologia#pedido">Solicitar Informações {{icon:seta}}</a>
+          <a class="rd-btn rd-btn--contorno" href="contactos.html" data-whats="Olá! Gostaria de informações sobre o curso de Estomatologia do ITPSS.">{{icon:whatsapp}} WhatsApp</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="rd-curso" id="farmacia">
+      <div class="rd-curso__foto rd-revela">
+        <img src="assets/img/curso-farmacia-720.webp" srcset="assets/img/curso-farmacia-720.webp 720w, assets/img/curso-farmacia.webp 1072w" sizes="(max-width: 900px) 92vw, 50vw" alt="Estudante do ITPSS na farmácia escola, junto às prateleiras de medicamentos" width="1072" height="712" loading="lazy">
+        <span class="rd-curso__num">Curso 02</span>
+      </div>
+      <div class="rd-curso__texto rd-revela" style="--rd-atraso:.08s">
+        <span class="rd-curso__icone" aria-hidden="true">{{icon:capsula}}</span>
+        <h2>Farmácia</h2>
+        <p class="rd-curso__intro">Formação técnica relacionada com medicamentos e práticas farmacêuticas.</p>
+        <dl class="rd-curso__area"><div><dt>Área de formação</dt><dd>Medicamentos e práticas farmacêuticas</dd></div></dl>
+        <p class="rd-curso__nota">Plano de estudos, duração e condições de acesso: pede informações à secretaria.</p>
+        <div class="rd-curso__acoes">
+          <a class="rd-btn" href="admissoes.html?curso=Farmácia#pedido">Solicitar Informações {{icon:seta}}</a>
+          <a class="rd-btn rd-btn--contorno" href="contactos.html" data-whats="Olá! Gostaria de informações sobre o curso de Farmácia do ITPSS.">{{icon:whatsapp}} WhatsApp</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="rd-curso" id="fisioterapia">
+      <div class="rd-curso__foto rd-revela">
+        <img src="assets/img/curso-fisioterapia-720.webp" srcset="assets/img/curso-fisioterapia-720.webp 720w, assets/img/curso-fisioterapia.webp 1072w" sizes="(max-width: 900px) 92vw, 50vw" alt="Formador do ITPSS demonstra uma técnica prática a estudantes" width="1072" height="712" loading="lazy">
+        <span class="rd-curso__num">Curso 03</span>
+      </div>
+      <div class="rd-curso__texto rd-revela" style="--rd-atraso:.08s">
+        <span class="rd-curso__icone" aria-hidden="true">{{icon:reabilitacao}}</span>
+        <h2>Fisioterapia</h2>
+        <p class="rd-curso__intro">Formação técnica orientada para a reabilitação e recuperação funcional.</p>
+        <dl class="rd-curso__area"><div><dt>Área de formação</dt><dd>Reabilitação e recuperação funcional</dd></div></dl>
+        <p class="rd-curso__nota">Plano de estudos, duração e condições de acesso: pede informações à secretaria.</p>
+        <div class="rd-curso__acoes">
+          <a class="rd-btn" href="admissoes.html?curso=Fisioterapia#pedido">Solicitar Informações {{icon:seta}}</a>
+          <a class="rd-btn rd-btn--contorno" href="contactos.html" data-whats="Olá! Gostaria de informações sobre o curso de Fisioterapia do ITPSS.">{{icon:whatsapp}} WhatsApp</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>

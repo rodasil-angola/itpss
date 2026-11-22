@@ -1,0 +1,29 @@
+<section class="rd-cmapa" aria-label="Mapa de localização">
+  <style>
+    .rd-cmapa { padding: 0 0 var(--rd-espaco-xl); }
+    /* Espaço reservado: substituir o conteúdo de .rd-cmapa__caixa por <iframe src="https://www.google.com/maps/embed?..." loading="lazy"></iframe> */
+    .rd-cmapa__caixa { position: relative; overflow: hidden; height: clamp(320px, 42vw, 460px); border-radius: var(--rd-raio-lg); background: #DCE8F2; display: grid; place-items: center; text-align: center; }
+    .rd-cmapa__caixa iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .rd-cmapa__caixa::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(rgba(23, 105, 170, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(23, 105, 170, .1) 1px, transparent 1px); background-size: 40px 40px; }
+    .rd-cmapa__ruas { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .rd-cmapa__conteudo { position: relative; z-index: 1; display: grid; justify-items: center; gap: 12px; padding: 28px 32px; max-width: 420px; border-radius: var(--rd-raio-lg); background: rgba(255, 255, 255, .92); box-shadow: var(--rd-sombra-suave); }
+    .rd-cmapa__conteudo > .rd-icon { width: 34px; height: 34px; color: var(--rd-azul); }
+    .rd-cmapa__conteudo b { font-family: var(--rd-fonte-titulo); color: var(--rd-azul-escuro); font-size: 1.1rem; }
+    .rd-cmapa__conteudo p { color: var(--rd-cor-texto-claro); font-size: .93rem; }
+  </style>
+  <div class="rd-container">
+    <div class="rd-cmapa__caixa rd-revela" data-mapa-reservado>
+      <svg class="rd-cmapa__ruas" viewBox="0 0 1200 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path d="M-20 300 C 240 250, 420 360, 700 290 S 1080 200, 1240 240" fill="none" stroke="#fff" stroke-width="22" stroke-linecap="round"/>
+        <path d="M360 -20 C 390 140, 480 260, 450 480" fill="none" stroke="#fff" stroke-width="14" stroke-linecap="round"/>
+        <path d="M860 -20 L 910 480" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round"/>
+      </svg>
+      <div class="rd-cmapa__conteudo">
+        {{icon:pin}}
+        <b>ITPSS, Hoji Ya Henda</b>
+        <p>{{rua}}. {{referencia}}.</p>
+        <a class="rd-btn rd-btn--sm" href="{{mapa_href}}" target="_blank" rel="noopener">{{icon:mapa}} Ver no Google Maps</a>
+      </div>
+    </div>
+  </div>
+</section>

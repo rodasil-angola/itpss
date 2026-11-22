@@ -1,0 +1,90 @@
+<section class="rd-hero" aria-labelledby="rd-hero-titulo">
+  <style>
+    .rd-hero { position: relative; isolation: isolate; overflow: hidden; background: var(--rd-azul-escuro); color: #fff; padding: calc(var(--rd-header-h) + clamp(40px, 6vw, 72px)) 0 0; }
+    .rd-hero::before { content: ""; position: absolute; inset: 0; z-index: -2; background: radial-gradient(80% 70% at 85% 30%, rgba(23, 105, 170, .55), transparent 70%), radial-gradient(50% 60% at 0% 100%, rgba(33, 166, 154, .22), transparent 70%); }
+    .rd-hero::after { content: ""; position: absolute; inset: 0; z-index: -1; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='44'%3E%3Cpath d='M22 17v10M17 22h10' stroke='%23ffffff' stroke-opacity='.1' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E"); -webkit-mask-image: radial-gradient(70% 80% at 20% 40%, #000, transparent); mask-image: radial-gradient(70% 80% at 20% 40%, #000, transparent); }
+    .rd-hero__grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(32px, 5vw, 72px); align-items: center; }
+    .rd-hero__etiqueta { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px 8px 10px; border-radius: 999px; background: rgba(255, 255, 255, .08); border: 1px solid rgba(255, 255, 255, .14); font-family: var(--rd-fonte-titulo); font-size: .68rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: rgba(255, 255, 255, .9); }
+    .rd-hero__etiqueta i { width: 8px; height: 8px; border-radius: 50%; background: var(--rd-turquesa); box-shadow: 0 0 0 4px rgba(33, 166, 154, .25); }
+    .rd-hero h1 { color: #fff; font-size: clamp(2.4rem, 5.6vw, 4.3rem); font-weight: 700; line-height: 1.04; letter-spacing: -.035em; margin-top: 26px; text-wrap: balance; }
+    .rd-hero h1 em { font-style: normal; color: #7FE0D6; }
+    .rd-hero__desc { font-size: clamp(1.05rem, 1.5vw, 1.2rem); color: rgba(255, 255, 255, .8); margin-top: 24px; max-width: 50ch; }
+    .rd-hero__acoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+    .rd-hero__slogan { display: flex; align-items: center; gap: 14px; margin-top: 40px; font-family: var(--rd-fonte-titulo); font-weight: 600; font-size: 1.02rem; color: #fff; }
+    .rd-hero__slogan svg { width: 20px; height: 20px; color: var(--rd-turquesa); fill: currentColor; stroke: none; }
+    .rd-hero__slogan::after { content: ""; flex: 0 1 80px; height: 1px; background: rgba(255, 255, 255, .3); }
+
+    .rd-hero__visual { position: relative; padding: 0 0 40px 40px; }
+    .rd-hero__foto { position: relative; border-radius: var(--rd-raio-lg) var(--rd-raio-lg) var(--rd-raio-lg) 90px; overflow: hidden; aspect-ratio: 4 / 4.4; box-shadow: 0 30px 60px rgba(0, 0, 0, .35); }
+    .rd-hero__foto img { width: 100%; height: 100%; object-fit: cover; object-position: 30% center; transform: scale(1.06); animation: rd-hero-zoom 1.8s var(--rd-ease) forwards; }
+    @keyframes rd-hero-zoom { to { transform: scale(1); } }
+    .rd-hero__foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(18, 54, 90, .55)); }
+    .rd-hero__pulso { position: absolute; left: 0; right: 18%; bottom: 96px; height: 60px; color: #7FE0D6; z-index: 2; pointer-events: none; }
+    .rd-hero__pulso path { stroke-dasharray: 600; stroke-dashoffset: 600; animation: rd-hero-pulso 2.4s .5s var(--rd-ease) forwards; }
+    @keyframes rd-hero-pulso { to { stroke-dashoffset: 0; } }
+    .rd-hero__cartao { position: absolute; left: 0; bottom: 0; z-index: 3; display: flex; align-items: center; gap: 14px; padding: 16px 20px 16px 16px; border-radius: var(--rd-raio-borda); background: #fff; color: var(--rd-azul-escuro); box-shadow: var(--rd-sombra-forte); max-width: 280px; }
+    .rd-hero__cartao img { width: 52px; height: 52px; border-radius: 50%; flex: none; }
+    .rd-hero__cartao b { display: block; font-family: var(--rd-fonte-titulo); font-size: .95rem; line-height: 1.25; }
+    .rd-hero__cartao span { font-size: .8rem; color: var(--rd-cor-texto-claro); }
+
+    .rd-hero__faixa { margin-top: clamp(48px, 7vw, 80px); border-top: 1px solid rgba(255, 255, 255, .12); }
+    .rd-hero__faixa ul { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); }
+    .rd-hero__faixa li + li { border-left: 1px solid rgba(255, 255, 255, .12); }
+    .rd-hero__faixa a { display: flex; align-items: center; gap: 14px; padding: 26px 24px; text-decoration: none; color: #fff; transition: background-color .3s; }
+    .rd-hero__faixa a:hover { background: rgba(255, 255, 255, .05); }
+    .rd-hero__faixa .rd-icon { width: 26px; height: 26px; color: #7FE0D6; }
+    .rd-hero__faixa b { font-family: var(--rd-fonte-titulo); font-weight: 600; font-size: 1rem; }
+    .rd-hero__faixa small { display: block; font-size: .8rem; color: rgba(255, 255, 255, .6); }
+    .rd-hero__faixa .rd-icon--seta { width: 18px; height: 18px; margin-left: auto; color: rgba(255, 255, 255, .5); transition: transform .3s var(--rd-ease), color .3s; }
+    .rd-hero__faixa a:hover .rd-icon--seta { transform: translateX(4px); color: #fff; }
+
+    @media (max-width: 960px) {
+      .rd-hero__grid { grid-template-columns: 1fr; }
+      .rd-hero__visual { max-width: 560px; padding-left: 24px; }
+      .rd-hero__foto { aspect-ratio: 4 / 3.4; }
+    }
+    @media (max-width: 720px) {
+      .rd-hero__faixa ul { grid-template-columns: 1fr; }
+      .rd-hero__faixa li + li { border-left: 0; border-top: 1px solid rgba(255, 255, 255, .12); }
+      .rd-hero__faixa a { padding: 18px 0; }
+      .rd-hero__acoes .rd-btn { flex: 1 1 100%; }
+      .rd-hero__slogan::after { display: none; }
+    }
+  </style>
+
+  <div class="rd-container">
+    <div class="rd-hero__grid">
+      <div class="rd-hero__texto">
+        <p class="rd-hero__etiqueta rd-revela"><i></i>Instituto Técnico Privado de Saúde do Sambizanga</p>
+        <h1 id="rd-hero-titulo" class="rd-revela" style="--rd-atraso:.08s">Constrói hoje o teu futuro na área da <em>saúde</em>.</h1>
+        <p class="rd-hero__desc rd-revela" style="--rd-atraso:.16s">Prepara-te para uma carreira de sucesso através de uma formação técnica orientada para o conhecimento, a competência e o serviço à sociedade.</p>
+        <div class="rd-hero__acoes rd-revela" style="--rd-atraso:.24s">
+          <a class="rd-btn rd-btn--turquesa" href="cursos.html">Conhecer os Cursos <svg class="rd-icon rd-icon--seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+          <a class="rd-btn rd-btn--claro" href="contactos.html">Falar Connosco</a>
+        </div>
+        <p class="rd-hero__slogan rd-revela" style="--rd-atraso:.32s"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Formar o Homem para a Vida!</p>
+      </div>
+
+      <div class="rd-hero__visual rd-revela" style="--rd-atraso:.12s">
+        <div class="rd-hero__foto">
+          <img src="assets/img/hero.webp" srcset="assets/img/hero-720.webp 720w, assets/img/hero.webp 1072w" sizes="(max-width: 960px) 92vw, 46vw" alt="Estudantes do ITPSS com batas e toucas durante uma actividade de formação" width="1072" height="712" fetchpriority="high">
+        </div>
+        <svg class="rd-hero__pulso" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30h130l12-18 16 36 14-44 14 50 12-24h202" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="rd-hero__cartao">
+          <img src="assets/img/logo-itpss.webp" alt="" width="52" height="52">
+          <div><b>ITPSS · Luanda</b><span>Hoji Ya Henda, junto ao Hospital do Sambizanga</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="rd-hero__faixa" aria-label="Cursos disponíveis">
+    <div class="rd-container">
+      <ul>
+        <li><a href="cursos.html#estomatologia"><svg class="rd-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3C4.8 3 3 4.8 3 7.2c0 2 .8 3.3 1.4 4.8.6 1.6.6 3.5 1 5.6.3 1.8.9 3.4 2 3.4 1.4 0 1.6-2.4 2-4.2.3-1.3.8-2.1 2.6-2.1s2.3.8 2.6 2.1c.4 1.8.6 4.2 2 4.2 1.1 0 1.7-1.6 2-3.4.4-2.1.4-4 1-5.6.6-1.5 1.4-2.8 1.4-4.8C21 4.8 19.2 3 17 3c-1.9 0-2.9 1-5 1S8.9 3 7 3Z"/></svg><span><b>Estomatologia</b><small>Saúde oral</small></span><svg class="rd-icon rd-icon--seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+        <li><a href="cursos.html#farmacia"><svg class="rd-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg><span><b>Farmácia</b><small>Medicamentos e práticas farmacêuticas</small></span><svg class="rd-icon rd-icon--seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+        <li><a href="cursos.html#fisioterapia"><svg class="rd-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/></svg><span><b>Fisioterapia</b><small>Reabilitação funcional</small></span><svg class="rd-icon rd-icon--seta" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a></li>
+      </ul>
+    </div>
+  </nav>
+</section>
